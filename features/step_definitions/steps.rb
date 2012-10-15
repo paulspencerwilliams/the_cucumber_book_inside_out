@@ -1,3 +1,7 @@
+class Account
+	def initialize(amount)
+	end
+end
 Given /^i have deposited \$(\d+) in my account$/ do |amount|
   Account.new(amount.to_i)
 end

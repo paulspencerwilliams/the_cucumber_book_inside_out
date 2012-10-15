@@ -30,3 +30,8 @@ class CashSlot
 		@contents or raise("I'm empty")
 	end
 end
+
+require 'sinatra'
+get '/' do 
+	'hello'
+end

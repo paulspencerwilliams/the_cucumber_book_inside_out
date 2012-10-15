@@ -1,6 +1,5 @@
 Given /^my account has been credited with (#{CAPTURE_A_NUMBER})$/ do |amount|
 	my_account.credit(amount)  
-	my_account.balance.should eq(amount)
 end
 
 When /^I withdraw (#{CAPTURE_A_NUMBER})/ do |amount|

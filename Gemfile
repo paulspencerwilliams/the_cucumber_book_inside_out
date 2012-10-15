@@ -9,6 +9,7 @@ group :developer do
 	gem 'rspec'
 	gem 'terminal-notifier-guard'
 	gem 'capybara'
+	gem 'launchy'
 end
 	
 

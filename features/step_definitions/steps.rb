@@ -10,17 +10,36 @@ class Account
 end
 
 class Teller
+	def initialize(cash_slot)
+		@cash_slot = cash_slot
+	end
 	def withdraw_from(account, amount)
+		@cash_slot.dispense(amount)
 	end
 end
 
-module KnowsMyAccount
+class CashSlot
+	def dispense(amount)
+		@contents = amount
+	end
+	def contents
+		@contents or raise("I'm empty")
+	end
+end
+
+module KnowsTheDomain
 	def my_account
 		@my_account ||= Account.new
 	end
+	def cash_slot
+		@cash_slot ||= CashSlot.new
+	end
+	def teller
+		@teller = Teller.new(cash_slot)
+	end
 end
 
-World(KnowsMyAccount)
+World(KnowsTheDomain)
 
 CAPTURE_A_NUMBER = Transform /^\$(\d+)$/ do | number |
 	number.to_i
@@ -31,11 +50,10 @@ Given /^i have deposited (#{CAPTURE_A_NUMBER}) in my account$/ do |amount|
 end
 
 When /^I withdraw (#{CAPTURE_A_NUMBER})/ do |amount|
-  teller = Teller.new
   teller.withdraw_from(my_account, amount)
 end
 
-Then /^\$(\d+) should be dispensed$/ do |arg1|
-  pending # express the regexp above with the code you wish you had
+Then /^(#{CAPTURE_A_NUMBER}) should be dispensed/ do |amount|
+  cash_slot.contents.should == amount
 
 end

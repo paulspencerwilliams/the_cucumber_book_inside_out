@@ -32,6 +32,12 @@ class CashSlot
 end
 
 require 'sinatra'
+
+set :cash_slot, CashSlot.new
+set :account do
+	fail 'account has not been set'
+end
+
 get '/' do 
 	%{
 		<html>
@@ -46,5 +52,6 @@ get '/' do
 	}
 end
 post '/withdraw' do
-	fail "I don't know how to withdraw yet, sorry"
+	teller = Teller.new(settings.cash_slot)
+	teller.withdraw_from(settings.account, params[:amount].to_i)
 end

@@ -1,4 +1,4 @@
-* My version of the Inside Out worked example within this great book. 
+# My version of the Inside Out worked example within this great book. 
 
 This worked example starts by BDDing the domain objects, and refining terms and definitions to make the code as close to problem domain as possible (ubiquitous language).
 

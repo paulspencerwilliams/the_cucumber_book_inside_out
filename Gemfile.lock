@@ -1,6 +1,9 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    activerecord (2.3.14)
+      activesupport (= 2.3.14)
+    activesupport (2.3.14)
     addressable (2.3.2)
     background_process (1.3)
     builder (3.1.3)
@@ -64,6 +67,7 @@ GEM
       rack (~> 1.3, >= 1.3.4)
       rack-protection (~> 1.1, >= 1.1.2)
       tilt (~> 1.3, >= 1.3.3)
+    sqlite3 (1.3.6)
     tcpsocket-wait (1.0.0)
     terminal-notifier-guard (1.5.3)
     thor (0.16.0)
@@ -75,6 +79,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord
   capybara
   cucumber
   guard
@@ -84,4 +89,5 @@ DEPENDENCIES
   rspec
   service_manager (= 0.6.2)
   sinatra (= 1.3.1)
+  sqlite3
   terminal-notifier-guard

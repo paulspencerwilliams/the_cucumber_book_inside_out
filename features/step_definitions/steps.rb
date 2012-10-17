@@ -11,5 +11,5 @@ Then /^(#{CAPTURE_A_NUMBER}) should be dispensed/ do |amount|
 end
 
 And /^the balance of my account should be (#{CAPTURE_A_NUMBER})/ do |amount|
-  eventually { my_account.balance.should eq(amount)}
+  eventually { my_account.reload.balance.should eq(amount)}
 end

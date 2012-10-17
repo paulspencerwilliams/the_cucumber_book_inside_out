@@ -14,6 +14,7 @@ group :developer do
 	gem 'terminal-notifier-guard'
 	gem 'capybara'
 	gem 'launchy'
+	gem 'database_cleaner'
 end
 	
 
